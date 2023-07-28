@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, useOutletContext } from "react-router-dom";
 import Mycontext from "../contexts/Mycontext";
+import ServeSuggestion from "../components/ServeSuggestion";
 const Watching = () => {
   const [watchinginfo, setwatchinginfo] = useOutletContext();
   const [isfull, setisfull] = useState(true);
@@ -29,31 +30,36 @@ const Watching = () => {
   });
   console.log(newText);
   return (
-    <div className="my-6 mx-20">
-      <iframe
-        width="960"
-        height="540"
-        src={"https://www.youtube.com/embed/" + useParams().id}
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-      ></iframe>
-      <div className="px-5 ">
-        <div className="font-bold w-80 ">
-          {video?.snippet?.title.slice(0, 40)}
+    <div className="flex ">
+      <div className="my-6  ml-20 mr-5 ">
+        <iframe
+          width="910"
+          height="540"
+          src={"https://www.youtube.com/embed/" + useParams().id}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+        <div className="px-5 mt-3">
+          <div className="font-bold text-lg">
+            {video?.snippet?.title.slice(0, 80)}
+          </div>
+          <div className="text-gray-600">{video?.snippet?.channelTitle}</div>
+          <div className="flex">
+            <div>{video?.statistics?.viewCount} views .</div>
+            <div className="px-2">{video?.snippet?.publishedAt}</div>
+          </div>
         </div>
-        <div className="text-gray-600">{video?.snippet?.channelTitle}</div>
-        <div className="flex">
-          <div>{video?.statistics?.viewCount} views .</div>
-          <div className="px-2">{video?.snippet?.publishedAt}</div>
+        <div className="w-[910px] border border-black rounded-lg bg-gray-200">
+          <div className={`mx-5 w-[910px] ${isFullDescrp}`}>{newText}</div>
+          <button className="mx-5 font-bold" onClick={handleisfull}>
+            {isfull ? "Show More" : "Show Less"}
+          </button>
         </div>
       </div>
-      <div className="w-[960px] border border-black rounded-lg bg-gray-200">
-        <div className={`mx-5 w-[900px] ${isFullDescrp}`}>{newText}</div>
-        <button className="mx-5 font-bold" onClick={handleisfull}>
-          {isfull ? "Show More" : "Show Less"}
-        </button>
+      <div>
+        <ServeSuggestion />
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Watching from "./components/Watching";
 import ServeVideos from "./components/ServeVideos";
 import Error from "./components/Error";
+// import ServeSuggestion from "./components/ServeSuggestion";
 // import Mycontext from "./contexts/Mycontext";
 import {
   Outlet,
@@ -24,6 +25,7 @@ function App() {
       {/* <Sidebar /> */}
       {/* <Body /> */}
       {/* <ServeVideos /> */}
+      {/* <ServeSuggestion /> */}
       <Outlet context={[watchinginfo, setwatchinginfo]} />
     </>
   );
