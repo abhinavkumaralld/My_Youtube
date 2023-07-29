@@ -1,15 +1,9 @@
 import React from "react";
 import { Link, useOutletContext } from "react-router-dom";
 const VideoCard = ({ video }) => {
-  // console.log("in watching", useOutletContext()[0], useOutletContext()[1]);
-  // const a = useOutletContext()[0];
-  // const b = useOutletContext()[1];
   const [watchinginfo, setwatchinginfo] = useOutletContext();
   const handleWatch = () => {
-    // console.log("kya be", watchinginfo, setwatchinginfo);
     setwatchinginfo(video);
-    // console.log("video adding");
-    // console.log("ka bh", watchinginfo, setwatchinginfo);
   };
 
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "React-dom/client";
 import Sidebar from "./components/Sidebar";
-import Body from "./components/Body";
+import BodyBar from "./components/BodyBar";
 import Navbar from "./components/Navbar";
 import Watching from "./components/Watching";
 import ServeVideos from "./components/ServeVideos";
@@ -15,18 +15,18 @@ import {
   useOutletContext,
 } from "react-router-dom";
 function App() {
-  const [watchinginfo, setwatchinginfo] = useState({});
-  // useEffect(() => {
-  //   console.log("changed", watchinginfo);
-  // }, [watchinginfo]);
+  const [watchinginfo, setwatchinginfo] = useState();
+  useEffect(() => {
+    updateouterState();
+  });
   return (
     <>
       <Navbar />
       {/* <Sidebar /> */}
-      {/* <Body /> */}
+      {/* <BodyBar /> */}
       {/* <ServeVideos /> */}
       {/* <ServeSuggestion /> */}
-      <Outlet context={[watchinginfo, setwatchinginfo]} />
+      <Outlet /*context={[watchinginfo, setwatchinginfo]}*/ />
     </>
   );
 }
@@ -42,11 +42,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/watch/:id",
-        element: (
-          <Mycontext.Provider value={{ hii: "jjjj" }}>
-            <Watching />
-          </Mycontext.Provider>
-        ),
+        element: <Watching />,
       },
     ],
   },

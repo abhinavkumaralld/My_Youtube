@@ -1,23 +1,24 @@
 import React from "react";
 import { Link, useOutletContext } from "react-router-dom";
 const SuggestionCard = ({ videoCard }) => {
-  //   const [watchinginfo, setwatchinginfo] = useOutletContext();
-  //   const handleWatch = () => {
-  //     setwatchinginfo(videoCard);
-  //   };
+  // const [watchinginfo, setwatchinginfo] = useOutletContext();
+  const handleWatch = () => {
+    // setwatchinginfo(videoCard);
+    // console.log(videoCard.id);
+  };
 
   return (
     <div className="px-2 flex mt-2  ">
-      <Link /*to={"watch/" + videoCard.id} onClick={handleWatch}*/>
+      <Link to={"../watch/" + videoCard.id} onClick={handleWatch}>
         <img
           className="rounded-lg w-44 "
           src={videoCard?.snippet?.thumbnails?.medium?.url}
           alt=""
         />
       </Link>
-      <div className="flex flex-col mx-2 w-44 text-clip overflow-hidden">
+      <div className="flex flex-col mx-2 w-[230px]  overflow-hidden ">
         <div className="font-bold w-80 text-sm">
-          {videoCard?.snippet?.title.slice(0, 30)}
+          {videoCard?.snippet?.title.slice(0, 30) + "..."}
         </div>
         <div className="text-gray-600 text-sm">
           {videoCard?.snippet?.channelTitle}

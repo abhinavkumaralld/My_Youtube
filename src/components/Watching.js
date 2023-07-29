@@ -3,32 +3,34 @@ import { useParams, useOutletContext } from "react-router-dom";
 import Mycontext from "../contexts/Mycontext";
 import ServeSuggestion from "../components/ServeSuggestion";
 const Watching = () => {
-  const [watchinginfo, setwatchinginfo] = useOutletContext();
-  const [isfull, setisfull] = useState(true);
-  const [isFullDescrp, setisFullDescrp] = useState("");
-  const handleisfull = () => {
-    setisfull(!isfull);
-    if (isfull) setisFullDescrp("");
-    else setisFullDescrp("h-12 text-clip overflow-hidden");
-    console.log(isfull);
-  };
+  // const [watchinginfo, setwatchinginfo] = useOutletContext();
+  // console.log("watchinginfo");
+  // console.log(watchinginfo);
+  // if (watchinginfo.snippet === undefined) return <h1>No watchinginfo yet</h1>;
+  // const [isfull, setisfull] = useState(true);
+  // const [isFullDescrp, setisFullDescrp] = useState("");
+  // const handleisfull = () => {
+  //   setisfull(!isfull);
+  //   if (isfull) setisFullDescrp("");
+  //   else setisFullDescrp("h-12 text-clip overflow-hidden");
+  // };
 
-  const video = watchinginfo;
-  let Text = watchinginfo.snippet.description.split("\n");
-  let newText = Text.map((val, ind) => {
-    const pattern1 = new RegExp("HTTPS:");
-    const pattern2 = new RegExp("https:");
-    const pattern3 = new RegExp("#");
-    if (val === "") return <br key={ind}></br>;
-    else if (pattern1.test(val) || pattern2.test(val) || pattern3.test(val))
-      return (
-        <a key={ind} href="#" className="text-blue-700">
-          {val}
-        </a>
-      );
-    else return <p key={ind}>{val}</p>;
-  });
-  console.log(newText);
+  // const video = watchinginfo;
+  // let Text = watchinginfo.snippet.description.split("\n");
+  // let newText = Text.map((val, ind) => {
+  //   const pattern1 = new RegExp("HTTPS:");
+  //   const pattern2 = new RegExp("https:");
+  //   const pattern3 = new RegExp("#");
+  //   if (val === "") return <br key={ind}></br>;
+  //   else if (pattern1.test(val) || pattern2.test(val) || pattern3.test(val))
+  //     return (
+  //       <a key={ind} href="#" className="text-blue-700">
+  //         {val}
+  //       </a>
+  //     );
+  //   else return <p key={ind}>{val}</p>;
+  // });
+
   return (
     <div className="flex ">
       <div className="my-6  ml-20 mr-5 ">
@@ -41,7 +43,7 @@ const Watching = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
-        <div className="px-5 mt-3">
+        {/* <div className="px-5 mt-3">
           <div className="font-bold text-lg">
             {video?.snippet?.title.slice(0, 80)}
           </div>
@@ -56,7 +58,7 @@ const Watching = () => {
           <button className="mx-5 font-bold" onClick={handleisfull}>
             {isfull ? "Show More" : "Show Less"}
           </button>
-        </div>
+        </div> */}
       </div>
       <div>
         <ServeSuggestion />
