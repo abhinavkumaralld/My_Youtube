@@ -15,10 +15,10 @@ import {
   useOutletContext,
 } from "react-router-dom";
 function App() {
-  const [watchinginfo, setwatchinginfo] = useState();
-  useEffect(() => {
-    updateouterState();
-  });
+  // const [watchinginfo, setwatchinginfo] = useState();
+  // useEffect(() => {
+  //   updateouterState();
+  // });
   return (
     <>
       <Navbar />

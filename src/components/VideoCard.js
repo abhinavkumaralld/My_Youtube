@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useOutletContext } from "react-router-dom";
 const VideoCard = ({ video }) => {
-  const [watchinginfo, setwatchinginfo] = useOutletContext();
+  // const [watchinginfo, setwatchinginfo] = useOutletContext();
   const handleWatch = () => {
-    setwatchinginfo(video);
+    // setwatchinginfo(video);
   };
 
   return (
