@@ -15,7 +15,7 @@ import {
   useOutletContext,
 } from "react-router-dom";
 function App() {
-  // const [watchinginfo, setwatchinginfo] = useState();
+  const [watchinginfo, setwatchinginfo] = useState();
   // useEffect(() => {
   //   updateouterState();
   // });
@@ -26,7 +26,7 @@ function App() {
       {/* <BodyBar /> */}
       {/* <ServeVideos /> */}
       {/* <ServeSuggestion /> */}
-      <Outlet /*context={[watchinginfo, setwatchinginfo]}*/ />
+      <Outlet context={[watchinginfo, setwatchinginfo]} />
     </>
   );
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useOutletContext } from "react-router-dom";
 const SuggestionCard = ({ videoCard }) => {
-  // const [watchinginfo, setwatchinginfo] = useOutletContext();
+  const [watchinginfo, setwatchinginfo] = useOutletContext();
   const handleWatch = () => {
-    // setwatchinginfo(videoCard);
+    setwatchinginfo(videoCard);
     // console.log(videoCard.id);
   };
 
