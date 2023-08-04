@@ -46,19 +46,25 @@ const SuggestionBar = () => {
   };
   return (
     <div className="flex ">
-      <div className="self-center text-2xl px-0" onClick={handleprev}>
-        {prevdisable ? "" : <p>&lt;</p>}
+      <div
+        className="self-center text-2xl px-0   rounded-full text-center cursor-pointer hover:bg-gray-200 "
+        onClick={handleprev}
+      >
+        {prevdisable ? "" : <p className="h-10 w-10">&lt;</p>}
       </div>
       {values.slice(index, index + 4).map((val, ind) => {
         return (
-          <div key={ind} className="bg-gray-200  rounded-md  mx-2 h-7 px-2">
+          <div key={ind} className="bg-gray-100  rounded-md  mx-2 h-7 px-2">
             {val}
           </div>
         );
       })}
 
-      <div className="text-2xl fixed right-16" onClick={handlenext}>
-        {nextdisable ? "" : <p>&gt;</p>}
+      <div
+        className="text-2xl fixed right-16   rounded-full text-center cursor-pointer hover:bg-gray-200 "
+        onClick={handlenext}
+      >
+        {nextdisable ? "" : <p className="h-10 w-10">&gt;</p>}
       </div>
     </div>
   );
