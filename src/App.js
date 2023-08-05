@@ -9,7 +9,8 @@ import Error from "./components/Error";
 import { Provider, useDispatch, useSelector } from "react-redux";
 
 import Store from "./redux/Store";
-// import { toggleSideBar } from "./redux/Slice";
+// import CommentSection from "./components/CommentSection";
+
 import {
   Outlet,
   createBrowserRouter,
@@ -24,6 +25,7 @@ function App() {
     <>
       <Provider store={Store}>
         <Navbar />
+        {/* <CommentSection /> */}
         {/* <Sidebar /> */}
         {/* {true && <BodyBar />} */}
         {/* <ServeVideos /> */}

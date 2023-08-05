@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import Store from "../redux/Store";
 import Slice, { toggleSideBar } from "../redux/Slice";
+import ServeComments from "./ServeComments";
 const Watching = () => {
   const [watchinginfo, setwatchinginfo] = useOutletContext();
   const isSideBar = useSelector((Store) => Store.Slice.isSideBar);
@@ -78,6 +79,7 @@ const Watching = () => {
             {isfull ? "Show Less" : "Show More"}
           </button>
         </div>
+        <ServeComments />
       </div>
       <div>
         <ServeSuggestion />
