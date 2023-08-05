@@ -2,9 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams, useOutletContext } from "react-router-dom";
 import Mycontext from "../contexts/Mycontext";
 import ServeSuggestion from "../components/ServeSuggestion";
+import Sidebar from "./Sidebar";
+import { useDispatch, useSelector } from "react-redux";
+import Store from "../redux/Store";
+import Slice, { toggleSideBar } from "../redux/Slice";
 const Watching = () => {
   const [watchinginfo, setwatchinginfo] = useOutletContext();
-  // console.log("watchinginfo");
+  const isSideBar = useSelector((Store) => Store.Slice.isSideBar);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (isSideBar) dispatch(toggleSideBar());
+  }, []);
   console.log(watchinginfo);
   if (watchinginfo.snippet === undefined) return <h1>No watchinginfo yet</h1>;
   const [isfull, setisfull] = useState(false);
@@ -41,6 +49,7 @@ const Watching = () => {
 
   return (
     <div className="flex ">
+      <div>{isSideBar && <Sidebar />}</div>
       <div className="my-6  ml-20 mr-5 ">
         <iframe
           width="910"

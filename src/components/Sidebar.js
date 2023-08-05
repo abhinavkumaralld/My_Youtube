@@ -7,22 +7,23 @@ import urvid_logo from "../images/ur_video.png";
 import wchltr_logo from "../images/watchltr.png";
 import liked_logo from "../images/like.png";
 import hist_logo from "../images/history.png";
+import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div>
       <div>
-        <div className="flex mx-5 my-4  w-40">
+        <Link to="/" className="flex mx-5 my-4  w-40">
           <img className="h-6 mx-5 my-2" src={homelogo} alt="" />
           <div className="self-center font-bold">Home</div>
-        </div>
-        <div className="flex mx-5  w-40">
+        </Link>
+        <Link to="/" className="flex mx-5  w-40">
           <img className="h-6 mx-5 my-2" src={shorts_logo} alt="" />
           <div className="self-center font-bold">Shorts</div>
-        </div>
-        <div className="flex mx-5  w-40">
+        </Link>
+        <Link to="/" className="flex mx-5  w-40">
           <img className="h-6 mx-5 my-2" src={subsc_logo} alt="" />
           <div className="self-center font-bold">Subscriptions</div>
-        </div>
+        </Link>
       </div>
       <hr className="my-2 mx-5 w-40" />
       <div>

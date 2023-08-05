@@ -56,25 +56,31 @@ const BodyBar = () => {
     if (index + 9 < values.length) setindex(index + 9);
   };
   return (
-    <div className="flex mx-16 mt-2 mb-6">
-      <div
-        className="self-center text-2xl px-5 text-center rounded-full cursor-pointer hover:bg-gray-200 "
-        onClick={handleprev}
-      >
-        {prevdisable ? "" : <p className="h-10 w-10">&lt;</p>}
+    <div className="flex mx-16 mt-2 mb-6 ">
+      <div className="px-5" onClick={handleprev}>
+        {prevdisable ? (
+          ""
+        ) : (
+          <p className="h-10 w-10 text-center text-2xl cursor-pointer rounded-full hover:bg-gray-200">
+            &lt;
+          </p>
+        )}
       </div>
-      {values.slice(index, index + 9).map((val, ind) => {
-        return (
-          <div key={ind} className="bg-gray-100  rounded-md  mx-3 h-7 px-2">
-            {val}
-          </div>
-        );
-      })}
-      <div
-        className="text-2xl fixed right-24   rounded-full text-center cursor-pointer hover:bg-gray-200 "
-        onClick={handlenext}
-      >
-        {nextdisable ? null : <p className="h-10 w-10">&gt;</p>}
+      <div className="self-center flex ">
+        {values.slice(index, index + 9).map((val, ind) => {
+          return (
+            <div key={ind} className="bg-gray-100  rounded-md  mx-3 h-7 px-2">
+              {val}
+            </div>
+          );
+        })}
+      </div>
+      <div className="fixed right-24  " onClick={handlenext}>
+        {nextdisable ? null : (
+          <p className="h-10 w-10 text-center text-2xl cursor-pointer rounded-full hover:bg-gray-200">
+            &gt;
+          </p>
+        )}
       </div>
     </div>
   );

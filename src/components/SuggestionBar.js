@@ -31,7 +31,7 @@ const SuggestionBar = () => {
     else setprevdisabe(false);
   };
   const disablenext = () => {
-    if (values.length - index <= 4) setnextdisabe(true);
+    if (values.length - index <= 3) setnextdisabe(true);
     else setnextdisabe(false);
   };
   useEffect(() => {
@@ -39,32 +39,37 @@ const SuggestionBar = () => {
     disableprev();
   }, [index]);
   const handleprev = () => {
-    if (index - 4 >= 0) setindex(index - 4);
+    if (index - 3 >= 0) setindex(index - 3);
   };
   const handlenext = () => {
-    if (index + 4 < values.length) setindex(index + 4);
+    if (index + 3 < values.length) setindex(index + 3);
   };
   return (
     <div className="flex ">
-      <div
-        className="self-center text-2xl px-0   rounded-full text-center cursor-pointer hover:bg-gray-200 "
-        onClick={handleprev}
-      >
-        {prevdisable ? "" : <p className="h-10 w-10">&lt;</p>}
+      <div className="px-0" onClick={handleprev}>
+        {prevdisable ? (
+          ""
+        ) : (
+          <p className="h-10 w-10 text-center text-2xl cursor-pointer rounded-full hover:bg-gray-200">
+            &lt;
+          </p>
+        )}
       </div>
-      {values.slice(index, index + 4).map((val, ind) => {
-        return (
-          <div key={ind} className="bg-gray-100  rounded-md  mx-2 h-7 px-2">
-            {val}
-          </div>
-        );
-      })}
-
-      <div
-        className="text-2xl fixed right-16   rounded-full text-center cursor-pointer hover:bg-gray-200 "
-        onClick={handlenext}
-      >
-        {nextdisable ? "" : <p className="h-10 w-10">&gt;</p>}
+      <div className="self-center flex ">
+        {values.slice(index, index + 3).map((val, ind) => {
+          return (
+            <div key={ind} className="bg-gray-100  rounded-md  mx-3 h-7 px-2">
+              {val}
+            </div>
+          );
+        })}
+      </div>
+      <div className="fixed right-20" onClick={handlenext}>
+        {nextdisable ? null : (
+          <p className="h-10 w-10 text-center text-2xl cursor-pointer rounded-full hover:bg-gray-200">
+            &gt;
+          </p>
+        )}
       </div>
     </div>
   );

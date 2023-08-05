@@ -6,8 +6,10 @@ import Navbar from "./components/Navbar";
 import Watching from "./components/Watching";
 import ServeVideos from "./components/ServeVideos";
 import Error from "./components/Error";
-// import ServeSuggestion from "./components/ServeSuggestion";
-// import Mycontext from "./contexts/Mycontext";
+import { Provider, useDispatch, useSelector } from "react-redux";
+
+import Store from "./redux/Store";
+// import { toggleSideBar } from "./redux/Slice";
 import {
   Outlet,
   createBrowserRouter,
@@ -16,17 +18,18 @@ import {
 } from "react-router-dom";
 function App() {
   const [watchinginfo, setwatchinginfo] = useState();
-  // useEffect(() => {
-  //   updateouterState();
-  // });
+  const [videos, setVideos] = useState([]);
+  // const toggleSideBar = useSelector((Store) => Store.Slice.isSideBar);
   return (
     <>
-      <Navbar />
-      {/* <Sidebar /> */}
-      {/* <BodyBar /> */}
-      {/* <ServeVideos /> */}
-      {/* <ServeSuggestion /> */}
-      <Outlet context={[watchinginfo, setwatchinginfo]} />
+      <Provider store={Store}>
+        <Navbar />
+        {/* <Sidebar /> */}
+        {/* {true && <BodyBar />} */}
+        {/* <ServeVideos /> */}
+        {/* <ServeSuggestion /> */}
+        <Outlet context={[watchinginfo, setwatchinginfo]} />
+      </Provider>
     </>
   );
 }
