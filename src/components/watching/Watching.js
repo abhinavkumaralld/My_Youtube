@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, useOutletContext } from "react-router-dom";
-import Mycontext from "../contexts/Mycontext";
-import ServeSuggestion from "../components/ServeSuggestion";
-import Sidebar from "./Sidebar";
+import Mycontext from "../../contexts/Mycontext";
+import ServeSuggestion from "../suggestions/ServeSuggestion";
+import Sidebar from "../home/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
-import Store from "../redux/Store";
-import Slice, { toggleSideBar } from "../redux/Slice";
+import Store from "../../redux/Store";
+import Slice, { toggleSideBar } from "../../redux/Slice";
 import ServeComments from "./ServeComments";
 const Watching = () => {
   const [watchinginfo, setwatchinginfo] = useOutletContext();
@@ -14,13 +14,11 @@ const Watching = () => {
   useEffect(() => {
     if (isSideBar) dispatch(toggleSideBar());
   }, []);
-  console.log(watchinginfo);
-  if (watchinginfo.snippet === undefined) return <h1>No watchinginfo yet</h1>;
+  // console.log(watchinginfo);
+  // if (watchinginfo.snippet === undefined) return <h1>No watchinginfo yet</h1>;
   const [isfull, setisfull] = useState(false);
   const [isFullDescrp, setisFullDescrp] = useState("");
-  const handleisfull = () => {
-    setisfull(!isfull);
-  };
+  const handleisfull = () => setisfull(!isfull);
   useEffect(() => {
     if (isfull) setisFullDescrp("");
     else {
@@ -31,9 +29,15 @@ const Watching = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  if (watchinginfo !== undefined)
+    localStorage.setItem("watchinginfo", JSON.stringify(watchinginfo));
 
-  const video = watchinginfo;
-  let Text = watchinginfo.snippet.description.split("\n");
+  let video = watchinginfo;
+  if (video === undefined) {
+    video = JSON.parse(localStorage.getItem("watchinginfo"));
+  }
+  console.log("video=", video);
+  let Text = video.snippet.description.split("\n");
   let newText = Text.map((val, ind) => {
     const pattern1 = new RegExp("HTTPS:");
     const pattern2 = new RegExp("https:");

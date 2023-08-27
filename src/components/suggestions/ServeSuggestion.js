@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Temp from "./Temp";
+import Temp from "../tempdata/Temp";
 import SuggestionCard from "./SuggestionCard";
 import SuggestionBar from "./SuggestionBar";
 const SurveSuggestion = () => {

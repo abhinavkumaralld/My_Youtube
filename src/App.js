@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "React-dom/client";
-import Sidebar from "./components/Sidebar";
-import BodyBar from "./components/BodyBar";
-import Navbar from "./components/Navbar";
-import Watching from "./components/Watching";
-import ServeVideos from "./components/ServeVideos";
-import Error from "./components/Error";
+import Sidebar from "./components/home/Sidebar";
+import BodyBar from "./components/home/BodyBar";
+import Navbar from "./components/home/Navbar";
+import Watching from "./components/watching/Watching";
+import ServeVideos from "./components/home/ServeVideos";
+import Error from "./components/home/Error";
 import { Provider, useDispatch, useSelector } from "react-redux";
 
 import Store from "./redux/Store";

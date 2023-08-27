@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import threeline from "../images/threelines.png";
-import utlogo from "../images/yt_logo.png";
-import createlogo from "../images/utube_create_icon.png";
-import bell from "../images/ut_ball_icon.png";
-import logo_search from "../images/logo_search.png";
-import Store from "../redux/Store";
-import { toggleSideBar } from "../redux/Slice";
+import threeline from "../../images/threelines.png";
+import utlogo from "../../images/yt_logo.png";
+import createlogo from "../../images/utube_create_icon.png";
+import bell from "../../images/ut_ball_icon.png";
+import logo_search from "../../images/logo_search.png";
+import Store from "../../redux/Store";
+import { toggleSideBar } from "../../redux/Slice";
 import { useDispatch } from "react-redux";
 const Navbar = () => {
   const dispatch = useDispatch();

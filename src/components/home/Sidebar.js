@@ -1,12 +1,12 @@
 import React from "react";
-import homelogo from "../images/home_logo.png";
-import shorts_logo from "../images/shorts_logo.png";
-import subsc_logo from "../images/subs.png";
-import hist_logo from "../images/history.png";
-import urvid_logo from "../images/ur_video.png";
-import wchltr_logo from "../images/watchltr.png";
-import liked_logo from "../images/like.png";
-import hist_logo from "../images/history.png";
+import homelogo from "../../images/home_logo.png";
+import shorts_logo from "../../images/shorts_logo.png";
+import subsc_logo from "../../images/subs.png";
+import hist_logo from "../../images/history.png";
+import urvid_logo from "../../images/ur_video.png";
+import wchltr_logo from "../../images/watchltr.png";
+import liked_logo from "../../images/like.png";
+import hist_logo from "../../images/history.png";
 import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
